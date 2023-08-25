@@ -114,14 +114,14 @@
 
 import SubscribeForm from "@/components/SubscribeForm";
 
-export default async function Home() {
+export default function Home() {
   // Fazendo uma requisição e renderizando ela
-  const req = await fetch("http://localhost:3000/api/subscribers", {
-    next: {
-      revalidate: 10,
-    },
-  });
-  const res = await req.json();
+  // const req = await fetch("http://localhost:3000/api/subscribers", {
+  //   next: {
+  //     revalidate: 10,
+  //   },
+  // });
+  // const res = await req.json();
 
   return (
     <main className="text-center">
@@ -135,7 +135,7 @@ export default async function Home() {
       </p>
       {/* Renderizando a resposta da requisição */}
       {/*  */}
-      <p>{res.message}</p>
+      {/* <p>{res.message}</p> */}
       <SubscribeForm />
     </main>
   );
