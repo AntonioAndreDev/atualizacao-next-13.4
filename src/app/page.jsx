@@ -114,7 +114,15 @@
 
 import SubscribeForm from "@/components/SubscribeForm";
 
-export default function Home() {
+export default async function Home() {
+  // Fazendo uma requisição e renderizando ela
+  const req = await fetch("http://localhost:3000/api/subscribers", {
+    next: {
+      revalidate: 10,
+    },
+  });
+  const res = await req.json();
+
   return (
     <main className="text-center">
       <h1 className="text-4xl">
@@ -125,6 +133,8 @@ export default function Home() {
         Ao se inscrever em nossa Newsletter você irá receber notícias e
         informações exclusivas sobre o universo do Frontend!
       </p>
+      {/* Renderizando a resposta da requisição */}
+      <p>{res.message}</p>
       <SubscribeForm />
     </main>
   );
