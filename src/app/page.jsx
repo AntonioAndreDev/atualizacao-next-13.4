@@ -134,6 +134,7 @@ export default async function Home() {
         informações exclusivas sobre o universo do Frontend!
       </p>
       {/* Renderizando a resposta da requisição */}
+      {/*  */}
       <p>{res.message}</p>
       <SubscribeForm />
     </main>
